@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>UI 견본</title>
+<link rel="stylesheet" href="pretendard.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="app-header"><span class="brand">워크스페이스</span><span class="spacer"></span><button class="btn sm tertiary">도움말</button></header>
+<main class="container stack-lg">
+  <div class="page-head">
+    <span class="t-caption">2026년 11월 1주차</span>
+    <h1 class="t-title1">이번 주 처리 현황</h1>
+    <p class="t-sub">지난주보다 처리 시간이 줄었어요. 지연 항목 3건을 확인해 주세요.</p>
+  </div>
+
+  <div class="toolbar">
+    <div class="segmented" role="group" aria-label="기간"><button aria-pressed="true">주간</button><button aria-pressed="false">월간</button></div>
+    <select class="select" aria-label="구분"><option>전체</option><option>A 그룹</option></select>
+    <input class="input" placeholder="이름으로 검색" aria-label="검색">
+  </div>
+
+  <section class="stats">
+    <div class="stat"><span class="stat-label">처리 건수</span><span class="stat-value">1,284</span><span class="stat-delta up">▲ 12.4%</span></div>
+    <div class="stat"><span class="stat-label">평균 처리 시간</span><span class="stat-value">3.2<span class="t-sub">분</span></span><span class="stat-delta up">▼ 0.8분</span></div>
+    <div class="stat"><span class="stat-label">지연</span><span class="stat-value">3</span><span class="stat-delta down">▲ 1건</span></div>
+  </section>
+
+  <div class="banner warn"><strong>지연 3건</strong><span>기준 시간(10분)을 넘었어요. 담당자 배정이 필요해요.</span></div>
+
+  <div class="grid-2">
+    <section class="stack">
+      <h2 class="section-title">확인이 필요한 항목</h2>
+      <div class="list">
+        <button class="list-item"><span class="lead">A</span><span class="body"><span class="title">요청 #2041</span><span class="meta">12분 경과 · A 그룹</span></span><span class="badge danger">지연</span></button>
+        <button class="list-item"><span class="lead">B</span><span class="body"><span class="title">요청 #2038</span><span class="meta">9분 경과 · B 그룹</span></span><span class="badge warn">주의</span></button>
+        <button class="list-item"><span class="lead">C</span><span class="body"><span class="title">요청 #2031</span><span class="meta">완료 · C 그룹</span></span><span class="badge ok">정상</span></button>
+      </div>
+    </section>
+    <section class="card">
+      <div class="card-head"><h2 class="section-title">설정</h2><span class="badge info">초안</span></div>
+      <div class="stack">
+        <div class="field"><label class="label" for="th">지연 기준 (분)</label><input id="th" class="input num" value="10"><span class="help">이 시간을 넘으면 지연으로 표시해요.</span></div>
+        <div class="field error"><label class="label" for="em">알림 받을 이메일</label><input id="em" class="input" value="team@"><span class="help">이메일 형식이 아니에요.</span></div>
+        <div><span class="t-caption">진행률 68%</span><div class="progress" aria-label="진행률"><span style="width:68%"></span></div></div>
+        <div class="row"><button class="btn">저장하기</button><button class="btn tertiary">취소</button><button class="btn secondary" aria-busy="true">저장 중</button></div>
+      </div>
+    </section>
+  </div>
+
+  <section class="stack">
+    <h2 class="section-title">전체 목록</h2>
+    <div class="table-wrap"><table class="table">
+      <thead><tr><th>항목</th><th>그룹</th><th class="num">처리 시간</th><th class="num">건수</th><th>상태</th></tr></thead>
+      <tbody>
+        <tr><td>요청 유형 1</td><td>A</td><td class="num">2.4분</td><td class="num">512</td><td><span class="badge ok">정상</span></td></tr>
+        <tr><td>요청 유형 2</td><td>B</td><td class="num">4.1분</td><td class="num">388</td><td><span class="badge warn">주의</span></td></tr>
+        <tr><td>요청 유형 3</td><td>C</td><td class="num">11.0분</td><td class="num">24</td><td><span class="badge danger">지연</span></td></tr>
+      </tbody>
+    </table></div>
+  </section>
+
+  <section class="card">
+    <div class="empty"><span class="t-title3">아직 기록이 없어요</span><span class="t-sub">첫 항목을 추가하면 여기에 보여요.</span><button class="btn sm secondary">항목 추가</button></div>
+  </section>
+  <section class="card stack"><div class="skeleton" style="width:40%"></div><div class="skeleton"></div><div class="skeleton" style="width:70%"></div></section>
+</main>
+<div class="bottom-cta"><button class="btn lg block">저장하기</button></div>
+<div class="toast-area"><div class="toast">설정을 저장했어요</div></div>
+</body>
+</html>

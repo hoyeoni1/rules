@@ -46,4 +46,4 @@
 - 진행 순서 · 요구사항 확인 질문 · 예외 케이스 · 검증 · 성능: `../rules/PLAYBOOK.md`
 - 설계 문서: `../rules/templates/DESIGN.md` → 작업 폴더에 복사해 채운다
 - 인수인계: `../rules/templates/HANDOFF.md`
-- UI: `../rules/docs/STYLE.md` + `style.css`
+- UI: `../rules/docs/STYLE.md` 를 따른다 — `pretendard.css` + `style.css` 클래스 사용, 새 CSS 최소화
