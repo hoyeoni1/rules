@@ -55,7 +55,7 @@ cp -r ../rules/docs/fonts ../rules/docs/pretendard.css ../rules/docs/style.css s
 - **관리형(관리자):** page-head → `.toolbar`(필터 · 세그먼트) → `.stats` → 문제 항목 `.list` 또는 `.table` → 상세 `dialog.sheet`
 - **입력형:** `.card` 안에 `.field` 세로 나열 → 하단 primary 1개 (모바일은 `.bottom-cta`)
 
-## 체크리스트 (제출 전 1분)
+## 체크리스트 (마무리 전 1분)
 - [ ] primary 버튼이 화면당 1개인가
 - [ ] 숫자에 `.num`(고정폭 숫자)이 적용됐나
 - [ ] 빈 상태 · 로딩 · 오류 문구가 있나
