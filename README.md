@@ -7,7 +7,7 @@ AI 코딩 에이전트(Codex)와 일할 때 쓰는 개인 작업 규칙. 코드�
 
 - `PLAYBOOK.md` — 타임박스 진행 순서 · 요구사항 확인 질문 · 예외 케이스 · 검증 · 성능 · 대규모 점검
 - `templates/` — DESIGN.md, HANDOFF.md
-- `docs/STYLE.md`, `docs/style.css`, `docs/pretendard.css` — 운영 수준 UI 시스템 (Pretendard 번들 · 라이트/다크 · 모바일 · 접근성), 견본 `docs/preview.html`
+- `docs/STYLE.md`, `docs/style.css`, `docs/pretendard.css` — 운영 수준 UI (Pretendard 번들 · 토스/Apple 원칙 · 라이트/다크), 견본 `docs/preview.html` · `docs/preview-admin.html`
 
 ## 사용
 ```

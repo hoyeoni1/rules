@@ -1,6 +1,7 @@
-# STYLE — 운영 수준 UI (Pretendard · Apple/Toss 톤)
+# STYLE — 운영 수준 UI (Pretendard · 토스/Apple 원칙)
 
-의존성 없는 CSS 한 벌. 디자인 토큰 → 컴포넌트 순서로 되어 있고, 라이트/다크 · 모바일 · 접근성까지 포함한다.
+참고한 공개 자료: 토스 디자인 시스템(TDS) 공개 문서의 컬러 · 타이포그래피 · Button · Top 컴포넌트 설명, Apple Human Interface Guidelines의 Layout · Color · Lists and tables.
+TDS 자체(컴포넌트 · 피그마 키트)는 쓰지 않는다 — 원칙과 공개된 값만 참고해 새로 만든 CSS다.
 
 ## 붙이는 법
 ```
@@ -11,61 +12,63 @@ cp -r ../rules/docs/fonts ../rules/docs/pretendard.css ../rules/docs/style.css s
 <link rel="stylesheet" href="/static/pretendard.css">
 <link rel="stylesheet" href="/static/style.css">
 ```
-폰트는 저장소에 번들(오프라인 동작). 견본: `docs/preview.html`을 브라우저로 연다.
+견본: `docs/preview.html`(사용자 화면, 모바일) · `docs/preview-admin.html`(관리 화면, 데스크톱). 클래스 쓰는 법은 견본 HTML을 그대로 보고 따라 한다.
 
-## 톤 원칙
-1. **여백이 위계를 만든다.** 선 · 그림자보다 간격. 카드 안 24px, 카드 사이 16px, 섹션 사이 24px+
-2. **한 화면 한 목적.** 제목 한 줄로 이 화면의 질문을 말한다 ("이번 주 처리 현황")
-3. **숫자가 주인공.** 핵심 지표 3~4개를 `.stats` 맨 위에, 단위는 작게
-4. **색은 의미에만.** 기본은 회색조 + 파랑 1색. 초록/주황/빨강은 상태 표시에만
-5. **행동은 하나만 강조.** 화면당 primary 버튼 1개. 나머지는 secondary/tertiary
-6. **말투는 짧고 정중하게.** "~했어요" 체. 오류는 원인 + 다음 행동 ("파일 형식이 달라요. CSV로 올려 주세요")
-7. **빈 화면 · 로딩 · 오류도 디자인한다.** `.empty` · `.skeleton` · `.banner.danger`
+## AI 티가 나는 화면 — 하지 않는다
+- 회색 바탕 위에 그림자 카드를 잔뜩 띄우기 → **흰 바탕 + 굵은 회색 띠(`.gap16`)로 구획**
+- 지표마다 ▲▼ %와 색 → 숫자 하나 + 비교는 회색 작은 글씨(`.note`)
+- 이모지 · 그라디언트 · 컬러 아이콘 박스 남발 → 회색 원형 asset, 강조는 1곳만 brand
+- 배너 · 뱃지 과다 → 뱃지는 상태가 바뀌는 항목에만, 배너 대신 `.notice` 한 줄
+- 모든 버튼이 파랑 → 화면당 fill 1개, 나머지 `weak` / `dark weak`
 
-## 토큰 (style.css 상단)
+## 원칙
+1. **화면 제목은 문장이다.** "예약 현황"보다 "회의실 예약이 3건 있어요"(사용자 화면). 관리 화면은 명사형 제목 + 기간.
+2. **위계는 크기 · 굵기 · 회색 단계로.** 색은 행동(brand)과 상태(성공 · 주의 · 위험)에만.
+3. **목록이 기본 단위.** 정보는 `.row`(왼쪽 asset · 두 줄 텍스트 · 오른쪽 값 · chevron)로 쌓는다. 표는 열 비교가 필요할 때만.
+4. **주된 행동은 화면 아래 하나.** 모바일은 `.bottom-cta`(보조는 왼쪽 `dark weak`, 주행동은 오른쪽 fill).
+5. **말투는 "~해요"체, 짧게.** 오류는 원인 + 다음 행동: "선택한 회의실은 최대 12명까지 쓸 수 있어요."
+6. **같은 색은 같은 뜻.** brand 파랑은 누를 수 있는 것에만 쓴다.
+7. 라이트 · 다크 · 375px · 키보드 포커스 · 모션 감소를 모두 지원한다(CSS에 내장).
+
+## 토큰
 | 범주 | 값 |
 |---|---|
-| 색 | gray 50~900 · blue-500 `#3182f6` · green/orange/red 상태색 · 다크 모드 자동 |
-| 글자 | display 32 / title1 26 / title2 22 / title3 19 / body 16 / sub 15 / caption 13 / micro 12, 자간 -0.01~-0.03em, `word-break:keep-all` |
-| 간격 | 4pt 단위 4 · 8 · 12 · 16 · 20 · 24 · 32 · 40 · 48 |
-| 반경 | 8 · 12 · 16 · 20 · full |
-| 그림자 | sh-1(카드) · sh-2(떠 있는 것) · sh-3(모달 · 토스트) |
-| 모션 | 180ms, `cubic-bezier(.2,.8,.2,1)`, 모션 감소 설정 존중 |
+| 회색 | grey50~900 (`#f9fafb` … `#191f28`), 글자는 text-1~4 의미 토큰으로만 |
+| 브랜드 · 상태 | blue500 `#3182f6`, red500, green500, orange500 + 각 weak(반투명) |
+| 글자 | t1 30/40 · t2 26/35 · t3 22/31 · t4 20/29 · **t5 17/25.5(본문)** · t6 15/22.5 · t7 13/19.5 · t8 12/18 |
+| 여백 | 좌우 24px(`--gutter`), 구획 띠 16px, 목록 행 최소 64px |
+| 버튼 | small 32 · medium 38 · large 48(기본) · xlarge 56, 반경 8/10/14/16, 누르면 0.96 축소 |
+| 반경 | 입력 14, 시트 28, 관리 화면 그룹 16 |
 
 ## 컴포넌트
 | 용도 | 클래스 |
 |---|---|
-| 상단바(블러) | `.app-header` `.brand` `.spacer` |
-| 레이아웃 | `.container` `.page-head` `.stack` `.grid-2` `.row` |
-| 카드 | `.card` `.card-head` `.section-title` |
-| 지표 | `.stats` > `.stat` (`.stat-label` `.stat-value` `.stat-delta.up/.down`) |
-| 목록(토스형 행) | `.list` > `.list-item` (`.lead` `.body` `.title` `.meta` `.trail`) |
-| 표 | `.table-wrap` > `.table`, 숫자 칸 `td.num` |
-| 버튼 | `.btn` + `.secondary` `.tertiary` `.ghost` `.danger` / `.sm` `.lg` `.block` / 로딩 `aria-busy="true"` |
-| 입력 | `.field` > `.label` + `.input` / `.select` / `.textarea` + `.help`, 오류 `.field.error` |
-| 세그먼트 | `.segmented` > `button[aria-pressed]` |
-| 필터 줄 | `.toolbar` |
-| 상태 | `.badge.ok/.warn/.danger/.info/.neutral` · `.banner.info/.warn/.danger` · `.progress` |
-| 로딩 · 빈 상태 | `.skeleton` · `.empty` |
-| 알림 · 모달 | `.toast-area` > `.toast` · `dialog.sheet` (모바일에서 바텀시트) |
-| 모바일 하단 CTA | `.bottom-cta` > `.btn.lg.block` |
-
-## 화면 패턴
-- **조회형(일반 사용자):** page-head → 검색 `.input` → 결과 `.card` 1개 → 관련 `.list`
-- **관리형(관리자):** page-head → `.toolbar`(필터 · 세그먼트) → `.stats` → 문제 항목 `.list` 또는 `.table` → 상세 `dialog.sheet`
-- **입력형:** `.card` 안에 `.field` 세로 나열 → 하단 primary 1개 (모바일은 `.bottom-cta`)
+| 사용자 화면 틀 | `.page` > `.navbar` · `.top`(`.sub-top` `.title` `.desc` `.amount`) |
+| 구획 | `.gap16`(굵은 띠) · `.divider` · `.section-head` + `.text-btn` |
+| 목록 행 | `.list` > `.row` (`.asset[.square][.brand]` `.texts` `.r-title` `.r-sub` `.right` `.r-value` `.icon.i-chevron`) |
+| 키-값 | `dl.kv` |
+| 버튼 | `.btn` + `weak` / `dark` / `dark weak` / `danger` · `small` `medium` `xlarge` `full` · 로딩 `aria-busy="true"` |
+| 하단 행동 | `.bottom-cta` > `.inner` > `.btn` |
+| 입력 | `.field` > `label` + `.input` + `.help`, 오류 `.field.error` |
+| 선택 | `.tabs`(밑줄) · `.segmented`(Apple) · `.chips` > `.chip[aria-pressed]` |
+| 상태 | `.badge` + `brand` `success` `caution` `danger` · `.notice` · `.progress > i` |
+| 비어 있음 · 로딩 | `.empty` · `.skel` |
+| 알림 · 시트 | `.toast` · `dialog.sheet` (`.handle` `.s-title` `.s-desc` `.actions`) |
+| 관리 화면 틀 | `.shell` > `.sidebar`(`.side-item[aria-current=page]`) + `.main` > `.main-head` `.toolbar` `.search` |
+| 관리 화면 내용 | `.metrics` > `.metric` · `.group`(inset grouped 목록) · `.table-wrap` > `.table` (`.r` 숫자 오른쪽 정렬, `th[aria-sort]`) |
 
 ## 체크리스트 (마무리 전 1분)
-- [ ] primary 버튼이 화면당 1개인가
-- [ ] 숫자에 `.num`(고정폭 숫자)이 적용됐나
-- [ ] 빈 상태 · 로딩 · 오류 문구가 있나
-- [ ] 375px 폭에서 가로 넘침이 없나 (표는 `.table-wrap`)
-- [ ] 키보드 Tab으로 포커스 링이 보이나
-- [ ] 다크 모드에서 글자가 읽히나
+- [ ] 화면 제목이 사용자의 질문에 답하는 문장인가
+- [ ] fill 버튼이 화면에 1개인가
+- [ ] 그림자 카드 대신 띠 · 그룹으로 구획했나
+- [ ] 숫자에 고정폭(`.num` / `.r`)이 적용됐나
+- [ ] 빈 상태 · 로딩 · 오류 문구가 "~해요"체로 있나
+- [ ] 375px에서 넘침 없음, 다크 모드에서 읽힘
 
 ## 에이전트에게 UI를 맡길 때
 ```
-UI는 ../rules/docs/STYLE.md 를 따른다. style.css 클래스만 쓰고 새 CSS는 최소로.
-화면 목적: (한 줄). 사용자: (누구). 핵심 지표: (3개). 주요 행동: (1개).
-빈 상태 · 로딩 · 오류 문구까지 만든다. 끝나면 375px · 1280px 폭에서 확인한다.
+UI는 ../rules/docs/STYLE.md 와 preview.html / preview-admin.html 구조를 따른다.
+style.css 클래스만 쓰고 새 CSS는 최소로. "AI 티가 나는 화면" 항목은 하지 않는다.
+화면 목적(사용자의 질문 한 문장): …  사용자: …  주된 행동: … (1개)
+빈 상태 · 로딩 · 오류 문구까지 만든다.
 ```
