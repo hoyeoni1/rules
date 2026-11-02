@@ -6,6 +6,7 @@ AI 코딩 에이전트(Codex)와 일할 때 쓰는 개인 작업 규칙. 코드�
 - `PLAN.md` — 요구사항 · 정의 · 결정 로그 · AI 오류 · 검증 · 한계 뼈대
 
 - `PLAYBOOK.md` — 타임박스 진행 순서 · 요구사항 확인 질문 · 예외 케이스 · 검증 · 성능 · 대규모 점검
+- `QA.md` — 작업 직후 기술 질문 대비: 질문 8유형 · 답변 틀 · 리허설 프롬프트 · 1장 요약
 - `templates/` — DESIGN.md, HANDOFF.md
 - `docs/STYLE.md`, `docs/style.css`, `docs/pretendard.css` — 운영 수준 UI (Pretendard 번들 · 토스/Apple 원칙 · 라이트/다크), 견본 `docs/preview.html` · `docs/preview-admin.html`
 

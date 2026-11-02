@@ -46,4 +46,5 @@
 - 진행 순서 · 요구사항 확인 질문 · 예외 케이스 · 검증 · 성능: `../rules/PLAYBOOK.md`
 - 설계 문서: `../rules/templates/DESIGN.md` → 작업 폴더에 복사해 채운다
 - 인수인계: `../rules/templates/HANDOFF.md`
+- 설명 질문 대비: `../rules/QA.md` — 결정 로그 · AI 오류 · 제약 출처를 작업 중에 빠짐없이 남기는 이유
 - UI: `../rules/docs/STYLE.md` 를 따른다 — `pretendard.css` + `style.css` 클래스 사용, 새 CSS 최소화
