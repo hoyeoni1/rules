@@ -10,14 +10,7 @@ cp ../rules/AGENTS.md ../rules/PLAN.md ../rules/templates/DESIGN.md ../rules/tem
 AGENTS.md가 이미 있으면 cp 대신 `cat ../rules/AGENTS.md >> AGENTS.md`
 
 ## 진행 방법
-**STEP 1부터 순서대로.** 붙여 넣을 필요 없이 Codex에 이렇게만 친다:
-```
-STEP 1
-STEP 4 R2 / 파일: app/service.py, tests/ / 제약: C1, C3 / 테스트: pytest -q
-STEP 5 R2
-STEP 6   ← 리뷰는 두 번째 세션에서
-```
-Codex가 `PROMPTS.md`에서 해당 지시문을 찾아 따른다. 빈칸(R번호 · 파일 · 제약 · 테스트 명령)은 **내가 정해서** 같이 친다 — 이게 내 판단이 드러나는 부분이다.
+**`PROMPTS.md`를 열어 STEP 1부터 순서대로.** 각 STEP의 지시문을 Codex에 붙여 넣는다.
 체크는 작업 폴더의 **`PLAN.md` 맨 위 "진행 체크"** 에서 한다 (번호가 같다).
 
 | STEP | 할 일 | 같이 쓰는 파일 |
