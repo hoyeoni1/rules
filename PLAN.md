@@ -1,5 +1,13 @@
 # PLAN
 
+## 진행 체크 (번호 = PROMPTS.md STEP)
+- [ ] STEP 1 시작 — 요구사항 · 데이터 요약 · 정의 필요 목록
+- [ ] STEP 2 담당자 확인 — 답마다 정의 · 제약 표에 시각과 함께
+- [ ] STEP 3 설계 — DESIGN.md, 알고리즘 3문장 설명 가능
+- [ ] STEP 4·5·6 반복 — R마다 맡기기 → 설명 → 리뷰 → 커밋 (아래 요구사항 체크)
+- [ ] STEP 7 검증 · 규모
+- [ ] STEP 8 마무리 — HANDOFF · 질문 리허설 · 1장 요약
+
 > 작업 규칙: github.com/hoyeoni1/rules 의 AGENTS.md 사용 (사전 작성한 공개 저장소)
 
 ## 요구사항 (README 기준)
